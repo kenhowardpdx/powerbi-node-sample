@@ -1,0 +1,11 @@
+{
+  "name": "powerbi-node",
+  "dependencies": {
+    "glue": "registry:npm/glue#3.3.0+20160618213616"
+  },
+  "globalDependencies": {
+    "confidence": "registry:dt/confidence#1.4.2+20160316155526",
+    "hapi": "registry:dt/hapi#13.0.0+20160803202811",
+    "node": "registry:dt/node#6.0.0+20160815222444"
+  }
+}
