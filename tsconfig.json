@@ -4,6 +4,7 @@
         "module": "commonjs",
         "inlineSourceMap": true,
         "outDir": "dist",
-        "rootDir": "src"
+        "rootDir": "src",
+        "experimentalDecorators": true
     }
 }
