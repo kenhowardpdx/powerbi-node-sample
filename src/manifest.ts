@@ -31,6 +31,9 @@ manifest = {
             }
         },
         {
+            plugin: 'inert'
+        },
+        {
             plugin: 'vision'
         },
         {

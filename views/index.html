@@ -1,1 +1,7 @@
 <h3>{{title}}</h3>
+
+<div id="reports">
+{{#each reports}}
+    <div powerbi-type="report" powerbi-embed-url="{{embedUrl}}" powerbi-access-token="{{token}}" style="width: 800px; height: 500px;"></div>
+{{/each}}
+</div>
