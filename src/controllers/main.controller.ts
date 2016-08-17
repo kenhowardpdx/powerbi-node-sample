@@ -6,22 +6,22 @@ const {get, controller} = require('hapi-decorators');
 const hoek = require('hoek');
 
 // app
-import {getReports, createReportEmbedToken} from '../modules/powerbi-client';
+import {getReportsAsync, getReportAsync} from '../modules/powerbi-client';
 
 @controller('/')
 class MainController {
 
     @get('/')
-    main(request: hapi.Request, reply: hapi.IReply) {
-        getReports((error, response) => {
-            hoek.assert(!error, error);
-            let reports = response.value;
-            reports = reports.map((report: any) => {
-                report.token = createReportEmbedToken(report.id);
-                return report;
-            });
-            reply.view('index', { title: 'Reports', reports });
-        });
+    async main(request: hapi.Request, reply: hapi.IReply) {
+        let reports = await getReportsAsync();
+        reply.view('index', { title: 'Reports', reports });
+    }
+
+    @get('/report/{id}')
+    async report(request: hapi.Request, reply: hapi.IReply) {
+        let reportId = request.params['id'];
+        let report = await getReportAsync(reportId);
+        reply.view('report', { title: `Report: ${report.name}`, report })
     }
 }
 
