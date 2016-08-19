@@ -30,7 +30,7 @@ class MainController {
         reply({ data: reports }).header('Content-Type', 'application/json');
     }
 
-    @get('/api/report/{id}')
+    @get('/api/reports/{id}')
     async apiReport(request: hapi.Request, reply: hapi.IReply) {
         let reportId = request.params['id'];
         let report = await getReportAsync(reportId);
