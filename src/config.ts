@@ -19,7 +19,8 @@ const config = {
         routes: {
             cors: {
                 origin: [process.env.CORS_ORIGIN || 'http://localhost:3000']
-            }
+            },
+            jsonp: 'callback'
         },
         labels: ['web']
     },
