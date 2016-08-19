@@ -23,6 +23,19 @@ class MainController {
         let report = await getReportAsync(reportId);
         reply.view('report', { title: `Report: ${report.name}`, report })
     }
+
+    @get('/api/reports')
+    async apiReports(request: hapi.Request, reply: hapi.IReply) {
+        let reports = await getReportsAsync();
+        reply({ reports }).header('Content-Type', 'application/json');
+    }
+
+    @get('/api/report/{id}')
+    async apiReport(request: hapi.Request, reply: hapi.IReply) {
+        let reportId = request.params['id'];
+        let report = await getReportAsync(reportId);
+        reply({ report }).header('Content-Type', 'application/json');
+    }
 }
 
 const mainController: any = new MainController();

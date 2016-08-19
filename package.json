@@ -4,6 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
+    "start": "node dist/index.js",
     "test": "lab -t 100 ./dist/test",
     "test-cov-html": "lab -r html -o coverage.html ./dist --coverage-exclude ./dist/test",
     "build": "tsc",
